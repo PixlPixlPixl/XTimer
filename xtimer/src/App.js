@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react"
 import { Grid, Move, Undo2 } from "lucide-react"
-import beep from './beep_alarm.mp3'
+import beep from './beep_alarm.mp3';
+import './App.css'
 
 const TimerBox = ({ id, duration, position, onDelete, isNew, isGridView }) => {
   const [timeLeft, setTimeLeft] = useState(duration)
@@ -216,108 +217,6 @@ const App = () => {
           )}
         </>
       )}
-      <style jsx>{`
-        .app {
-          background-color: black;
-          min-height: 100vh;
-          width: 100vw;
-          position: relative;
-          overflow: hidden;
-          cursor: pointer;
-        }
-        .app.grid-view {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-          gap: 20px;
-          padding: 20px;
-        }
-        .timer-box {
-          position: absolute;
-          color: white;
-          border: 2px solid white;
-          padding: 10px 20px;
-          font-size: 24px;
-          font-family: Arial, sans-serif;
-          border-radius: 5px;
-          transform: translate(-50%, -50%);
-          transition: background-color 0.3s, transform 0.3s;
-        }
-        .timer-box.grid-view {
-          position: relative;
-          transform: none;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-        }
-        .timer-box.completed {
-          background-color: red;
-        }
-        .timer-box.new {
-          animation: pop 0.3s ease-out;
-        }
-        .drag-indicator {
-          position: absolute;
-          background-color: rgba(255, 255, 255, 0.5);
-          height: 2px;
-        }
-        .preview {
-          position: absolute;
-          color: white;
-          background-color: rgba(255, 255, 255, 0.2);
-          padding: 5px 10px;
-          border-radius: 3px;
-          font-size: 16px;
-          transform: translate(10px, 10px);
-        }
-        .view-toggle,
-        .undo-button {
-          position: absolute;
-          display: flex;
-          gap: 10px;
-          z-index: 1000;
-        }
-        .view-toggle {
-          top: 20px;
-          right: 20px;
-        }
-        .undo-button {
-          top: 20px;
-          left: 20px;
-        }
-        .view-toggle button,
-        .undo-button button {
-          background-color: rgba(50, 50, 50, 0.7);
-          border: none;
-          color: white;
-          padding: 10px;
-          border-radius: 5px;
-          cursor: pointer;
-          transition: background-color 0.3s;
-        }
-        .view-toggle button:hover,
-        .view-toggle button.active,
-        .undo-button button:hover:not(:disabled) {
-          background-color: rgba(80, 80, 80, 0.9);
-        }
-        .undo-button button:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-        }
-        @keyframes pop {
-          0% {
-            transform: translate(-50%, -50%) scale(0.8);
-          }
-          50% {
-            transform: translate(-50%, -50%) scale(1.1);
-          }
-          100% {
-            transform: translate(-50%, -50%) scale(1);
-          }
-        }
-      `}</style>
     </div>
   )
 }
