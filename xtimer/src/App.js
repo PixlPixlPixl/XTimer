@@ -19,25 +19,26 @@ const TimerBox = ({ id, duration, position, onDelete, isNew, isGridView }) => {
   )
 
   useEffect(() => {
+    const audio = audioRef.current;
     intervalRef.current = setInterval(() => {
       setTimeLeft(prevTime => {
         if (prevTime <= 0) {
-          clearInterval(intervalRef.current)
-          setIsCompleted(true)
-          audioRef.current.loop = true
-          audioRef.current.play()
-          return 0
+          clearInterval(intervalRef.current);
+          setIsCompleted(true);
+          audio.loop = true;
+          audio.play();
+          return 0;
         }
-        return prevTime - 1
-      })
-    }, 1000)
-
+        return prevTime - 1;
+      });
+    }, 1000);
+  
     return () => {
-      clearInterval(intervalRef.current)
-      audioRef.current.pause()
-      audioRef.current.currentTime = 0
-    }
-  }, [])
+      clearInterval(intervalRef.current);
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
 
   useEffect(() => {
     if (isCompleted) {
