@@ -87,10 +87,11 @@ const App = () => {
   const [isGridView, setIsGridView] = useState(false)
 
   const handleMouseDown = e => {
-    if (e.button !== 0) return // Only respond to left mouse button
-    setIsDragging(true)
-    setDragStart({ x: e.clientX, y: e.clientY })
-    setCurrentPosition({ x: e.clientX, y: e.clientY })
+    if (e.button !== 0) return; // Only respond to left mouse button
+    if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return; // Ignore button clicks
+    setIsDragging(true);
+    setDragStart({ x: e.clientX, y: e.clientY });
+    setCurrentPosition({ x: e.clientX, y: e.clientY });
   }
 
   const handleMouseMove = e => {
@@ -161,6 +162,16 @@ const App = () => {
   const toggleView = () => {
     setIsGridView(prev => !prev)
   }
+
+  useEffect(() => {
+    const handleContextMenu = e => {
+      e.preventDefault();
+    }
+    document.addEventListener('contextmenu', handleContextMenu);
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+    }
+  }, []);
 
   return (
     <div
