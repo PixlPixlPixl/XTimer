@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/xtimer/static/css/main.4e273762.css",
+    "main.js": "/xtimer/static/js/main.a039ff97.js",
+    "static/js/453.88694eb8.chunk.js": "/xtimer/static/js/453.88694eb8.chunk.js",
+    "static/media/beep_alarm.mp3": "/xtimer/static/media/beep_alarm.12f0feb0236709d871b2.mp3",
+    "index.html": "/xtimer/index.html",
+    "main.4e273762.css.map": "/xtimer/static/css/main.4e273762.css.map",
+    "main.a039ff97.js.map": "/xtimer/static/js/main.a039ff97.js.map",
+    "453.88694eb8.chunk.js.map": "/xtimer/static/js/453.88694eb8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e273762.css",
+    "static/js/main.a039ff97.js"
+  ]
+}
